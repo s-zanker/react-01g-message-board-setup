@@ -1,0 +1,9 @@
+.Post-author {
+  font-weight: bold;
+  color: #cc00cc;
+  cursor: pointer;
+}
+.Post-date {
+  font-style: italic;
+  color: #999;
+}
