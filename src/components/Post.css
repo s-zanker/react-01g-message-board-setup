@@ -1,0 +1,52 @@
+.Post {
+  background: #f5f5f5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.Post-title {
+  font-size: 1.8em;
+  line-height: 1;
+  color: #484848;
+  margin-bottom: 2rem;
+}
+
+.Post-content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.Post-content {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* für mobile: bricht um, wenn nötig */
+}
+
+.Post-author {
+  font-weight: bold;
+  color: #cc00cc;
+  cursor: pointer;
+}
+.Post-date {
+  font-style: italic;
+  color: #999;
+}
+
+.Post-button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.2em 0.5em;
+  font-size: 1em;
+  font-weight: 400;
+  background-color: #cc00cc;
+  cursor: pointer;
+}
+.Post-button:hover {
+  background: #ffffff;
+  color: #cc00cc;
+}
