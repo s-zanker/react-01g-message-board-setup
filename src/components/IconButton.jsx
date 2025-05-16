@@ -1,10 +1,8 @@
-import { MdArrowForward } from 'react-icons/md'; //React Icon Library -> npm install react-icons
 import './IconButton.css';
 import { useState } from 'react';
-export function IconButton({ children, onBtnClick }) {
+export function IconButton({ children, onBtnClick, icon, type }) {
   const [isActive, setIsActive] = useState(false);
-  console.log('isActive IconButton:');
-  console.log(isActive);
+
   function toggleBtnClass() {
     setIsActive(!isActive);
   }
@@ -12,12 +10,11 @@ export function IconButton({ children, onBtnClick }) {
     <button
       className={`Icon-button${isActive ? ' active' : ''}`}
       onClick={() => {
-        onBtnClick(), toggleBtnClass();
+        onBtnClick(), type === 'summaryBtn' && toggleBtnClass();
       }}
     >
-      <span>{children}</span> <MdArrowForward />
+      <span>{children}</span>
+      {icon}
     </button>
   );
 }
-
-//To toggle btn class - did not work

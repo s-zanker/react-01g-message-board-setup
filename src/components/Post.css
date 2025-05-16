@@ -45,3 +45,14 @@
   margin-top: 20px;
   color: #626262;
 }
+
+.Post-vote-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #626262;
+  margin-bottom: 10px;
+}
+.Post-vote-container span {
+  font-family: monospace;
+}

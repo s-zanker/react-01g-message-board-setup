@@ -5,12 +5,12 @@
   border-radius: 8px;
   border: none;
   padding: 0.2em 0.5em;
-  font-size: 1em;
+  font-family: monospace;
+  font-size: 1.1em;
   font-weight: 400;
   background-color: #cc00cc;
   cursor: pointer;
 }
-
 .Icon-button.active {
   background-color: #ffffff;
   color: #cc00cc;
