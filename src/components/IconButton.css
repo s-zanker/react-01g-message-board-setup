@@ -10,7 +10,8 @@
   background-color: #cc00cc;
   cursor: pointer;
 }
-.Icon-button:hover {
-  background: #ffffff;
+
+.Icon-button.active {
+  background-color: #ffffff;
   color: #cc00cc;
 }

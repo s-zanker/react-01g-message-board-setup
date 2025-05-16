@@ -32,20 +32,3 @@ h2 {
   color: #484848;
   margin-bottom: 2rem;
 }
-
-button {
-  border-radius: 8px;
-  border: none;
-  padding: 0.2em 0.5em;
-  margin-top: 0.8rem;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #cc00cc;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  background: #ffffff;
-  color: #cc00cc;
-}

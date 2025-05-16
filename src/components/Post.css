@@ -1,5 +1,6 @@
 .Post {
   background: #f5f5f5;
+  min-width: 375px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 1rem;
@@ -26,16 +27,6 @@
   flex-wrap: wrap; /* für mobile: bricht um, wenn nötig */
 }
 
-.Post-author {
-  font-weight: bold;
-  color: #cc00cc;
-  cursor: pointer;
-}
-.Post-date {
-  font-style: italic;
-  color: #999;
-}
-
 .Post-button {
   border-radius: 8px;
   border: none;
@@ -48,4 +39,9 @@
 .Post-button:hover {
   background: #ffffff;
   color: #cc00cc;
+}
+
+.Post-summary {
+  margin-top: 20px;
+  color: #626262;
 }

@@ -6,7 +6,12 @@ export function PostList({ posts }) {
       {posts
         .map((post) => (
           <li key={post.id}>
-            <Post title={post.title} author={post.author} date={post.date} />
+            <Post
+              title={post.title}
+              author={post.author}
+              date={post.date}
+              summary={post.summary}
+            />
           </li>
         ))
         .reverse()}

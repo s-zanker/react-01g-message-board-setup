@@ -1,7 +1,13 @@
 import { IconButton } from './IconButton';
 import { PostMeta } from './PostMeta';
 import './Post.css';
-export function Post({ title, author, date }) {
+import { useState } from 'react';
+
+export function Post({ title, author, date, summary }) {
+  const [summaryIsVisible, setSummaryIsVisible] = useState(false); //summary is only visible, wenn Readme Btn was clicked
+  function toggleIsVisible() {
+    setSummaryIsVisible(!summaryIsVisible);
+  }
   return (
     <article className='Post'>
       <h2 className='Post-title'>{title}</h2>
@@ -10,9 +16,12 @@ export function Post({ title, author, date }) {
           <PostMeta author={author} date={date} />
         </div>
         <div>
-          <IconButton>Read more</IconButton>
+          <IconButton onBtnClick={toggleIsVisible}>
+            {!summaryIsVisible ? 'Read more' : 'Read less'}
+          </IconButton>
         </div>
       </div>
+      <div className='Post-summary'>{summaryIsVisible && <p>{summary}</p>}</div>
     </article>
   );
 }
