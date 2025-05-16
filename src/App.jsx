@@ -25,6 +25,14 @@ function App() {
       date: '2024-06-21',
       summary: 'Insights and takeaways from the third discussion.',
     },
+    {
+      id: 4,
+      title: 'Fourth Post',
+      author: 'Sylvia',
+      date: '2024-06-22',
+      summary:
+        'Added more interactivity to the message board. I hope you like it.',
+    },
   ];
   return (
     <>

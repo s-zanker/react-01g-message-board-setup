@@ -1,25 +1,25 @@
+//CSS
+import './Post.css';
+//Components
 import { IconButton } from './IconButton';
-
+import { PostMeta } from './PostMeta';
+//Hooks
+import { useState } from 'react';
+//React Icons
 import { IoMdArrowDropright } from 'react-icons/io'; //React Icon Library -> npm install react-icons
 import { IoMdArrowDropdown } from 'react-icons/io';
-
 import { BsHandThumbsUp } from 'react-icons/bs';
 import { BsHandThumbsDown } from 'react-icons/bs';
-
-import { PostMeta } from './PostMeta';
-import './Post.css';
-import { useState } from 'react';
 
 export function Post({ title, author, date, summary }) {
   const [summaryIsVisible, setSummaryIsVisible] = useState(false); //summary is only visible, wenn Readme Btn was clicked
   const [voteCount, setVoteCount] = useState(0);
 
-  function handleVotes(direction) {
-    setVoteCount((prevCount) => {
-      if (direction === 'up') return prevCount + 1;
-      if (direction === 'down' && prevCount > 0) return prevCount - 1;
-      return prevCount; //no change
-    });
+  function handleUpVote() {
+    setVoteCount(voteCount + 1);
+  }
+  function handleDownVote() {
+    voteCount > 0 && setVoteCount(voteCount - 1);
   }
   function toggleIsVisible() {
     setSummaryIsVisible(!summaryIsVisible);
@@ -31,14 +31,14 @@ export function Post({ title, author, date, summary }) {
         <span>{voteCount} Votes</span>
         <IconButton
           type='voteBtn'
-          onBtnClick={() => handleVotes('up')}
+          onBtnClick={() => handleUpVote()}
           icon={<BsHandThumbsUp />}
         >
           upVote
         </IconButton>
         <IconButton
           type='voteBtn'
-          onBtnClick={() => handleVotes('down')}
+          onBtnClick={() => handleDownVote()}
           icon={<BsHandThumbsDown />}
         >
           upVote
