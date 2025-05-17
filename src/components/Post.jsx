@@ -41,7 +41,7 @@ export function Post({ title, author, date, summary }) {
           onBtnClick={() => handleDownVote()}
           icon={<BsHandThumbsDown />}
         >
-          upVote
+          downVote
         </IconButton>
       </div>
       <div className='Post-content-container'>

@@ -3,3 +3,43 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+.post-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  font-family: monospace;
+  color: rgb(43, 43, 43);
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 2rem 0rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.post-add-form input {
+  background-color: rgb(255, 255, 255);
+  color: #cc00cc;
+  border: 2px solid transparent;
+  padding: 0.2rem;
+}
+.post-add-form input:focus {
+  outline: none;
+  border: 2px solid #cc00cc;
+  border-radius: 4px;
+}
+
+.post-add-button {
+  font-family: monospace;
+  border-radius: 8px;
+  border: none;
+  padding: 0.2em 0.5em;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  font-weight: 400;
+  background-color: #cc00cc;
+  cursor: pointer;
+}
+.pst-add-button:hover {
+  background: #ffffff;
+  color: #cc00cc;
+}
