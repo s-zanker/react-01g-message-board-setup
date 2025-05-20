@@ -11,24 +11,23 @@ import { IoMdArrowDropdown } from 'react-icons/io';
 import { BsHandThumbsUp } from 'react-icons/bs';
 import { BsHandThumbsDown } from 'react-icons/bs';
 
-export function Post({ title, author, date, summary }) {
+export function Post({ title, author, date, summary, updatePost, votes, id }) {
   const [summaryIsVisible, setSummaryIsVisible] = useState(false); //summary is only visible, wenn Readme Btn was clicked
-  const [voteCount, setVoteCount] = useState(0);
 
-  function handleUpVote() {
-    setVoteCount(voteCount + 1);
-  }
-  function handleDownVote() {
-    voteCount > 0 && setVoteCount(voteCount - 1);
-  }
   function toggleIsVisible() {
     setSummaryIsVisible(!summaryIsVisible);
+  }
+  function handleUpVote() {
+    updatePost(id, { votes: votes + 1 });
+  }
+  function handleDownVote() {
+    votes > 0 && updatePost(id, { votes: votes - 1 });
   }
   return (
     <article className='Post'>
       <h2 className='Post-title'>{title}</h2>
       <div className='Post-vote-container'>
-        <span>{voteCount} Votes</span>
+        <span>{votes} Votes</span>
         <IconButton
           type='voteBtn'
           onBtnClick={() => handleUpVote()}

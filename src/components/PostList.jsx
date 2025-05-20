@@ -1,6 +1,7 @@
 import { Post } from './Post';
 import './PostList.css';
-export function PostList({ posts }) {
+
+export function PostList({ posts, updatePost }) {
   return (
     <ul>
       {posts
@@ -11,6 +12,9 @@ export function PostList({ posts }) {
               author={post.author}
               date={post.date}
               summary={post.summary}
+              id={post.id}
+              votes={post.votes}
+              updatePost={(id, updatedItem) => updatePost(id, updatedItem)}
             />
           </li>
         ))

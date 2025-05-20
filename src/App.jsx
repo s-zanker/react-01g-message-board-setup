@@ -1,9 +1,9 @@
 import './App.css';
+import { useLocalStorage } from '@uidotdev/usehooks';
 import { uid } from 'uid';
-import { useState } from 'react';
-
 import { Header } from './components/Header';
 import { PostList } from './components/PostList';
+import { PostForm } from './components/PostForm';
 
 const initialPosts = [
   {
@@ -12,6 +12,7 @@ const initialPosts = [
     author: 'Alex',
     date: '2024-06-19',
     summary: 'A brief overview of my first experience.',
+    votes: 0,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const initialPosts = [
     author: 'Casey',
     date: '2024-06-20',
     summary: 'Details on the second encounter and its impacts.',
+    votes: 0,
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ const initialPosts = [
     author: 'Jordan',
     date: '2024-06-21',
     summary: 'Insights and takeaways from the third discussion.',
+    votes: 0,
   },
   {
     id: 4,
@@ -34,44 +37,32 @@ const initialPosts = [
     date: '2024-06-22',
     summary:
       'Added more interactivity to the message board. I hope you like it.',
+    votes: 0,
   },
 ];
 
 function App() {
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useLocalStorage('posts', initialPosts);
 
   function addPost(newPost) {
     setPosts([...posts, { id: uid(), ...newPost }]);
   }
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const fields = Object.fromEntries(formData);
-    console.log(fields);
-    addPost({
-      ...fields,
-    });
+  function updatePost(id, updatedItem) {
+    setPosts(
+      posts.map((item) => (item.id === id ? { ...item, ...updatedItem } : item))
+    );
   }
 
   return (
     <>
       <Header />
       <div>
-        <form className='post-add-form' onSubmit={(e) => handleFormSubmit(e)}>
-          <label htmlFor='post-title'>Post Title:</label>
-          <input id='post-title' name='title' />
-          <label htmlFor='post-author'>Post Author:</label>
-          <input id='post-author' name='author' type='text' />
-          <label htmlFor='post-summary'>Post Summary:</label>
-          <input id='post-summary' name='summary' type='text' />
-          <label htmlFor='post-date'>Post Date:</label>
-          <input id='post-date' name='date' type='date' />
-          <button className='post-add-button' type='submit'>
-            Add Post
-          </button>
-        </form>
+        <PostForm addPost={(post) => addPost(post)} />
       </div>
-      <PostList posts={posts} />
+      <PostList
+        posts={posts}
+        updatePost={(id, updatedItem) => updatePost(id, updatedItem)}
+      />
     </>
   );
 }
