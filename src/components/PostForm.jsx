@@ -2,7 +2,7 @@ import './PostForm.css';
 
 export function PostForm({ addPost }) {
   function handleFormSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //prevents the browser of sending an http request
     const formData = new FormData(event.target);
     const fields = Object.fromEntries(formData);
     console.log(fields);

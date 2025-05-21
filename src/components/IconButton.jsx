@@ -6,12 +6,13 @@ export function IconButton({ children, onBtnClick, icon, type }) {
   function toggleBtnClass() {
     setIsActive(!isActive);
   }
+  function onClickHandler() {
+    onBtnClick(), type === 'summaryBtn' && toggleBtnClass();
+  }
   return (
     <button
       className={`Icon-button${isActive ? ' active' : ''}`}
-      onClick={() => {
-        onBtnClick(), type === 'summaryBtn' && toggleBtnClass();
-      }}
+      onClick={() => onClickHandler()}
     >
       <span>{children}</span>
       {icon}
