@@ -22,11 +22,13 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  color: #cc00cc;
+  font-size: 2em;
   line-height: 1.1;
   padding: 0.8rem 0.8rem;
 }
 h2 {
+  font-family: monospace;
   font-size: 1.8em;
   line-height: 1;
   color: #484848;

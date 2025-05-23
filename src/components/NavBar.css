@@ -1,0 +1,33 @@
+.NavBar {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-family: monospace;
+  gap: 0.5rem;
+  min-width: 375px;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded bottom corners if navbar is at the top */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.NavBar-link {
+  color: #ffffff;
+  background-color: #cc00cc;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.NavBar-link:hover {
+  background-color: #ffffff;
+  color: #cc00cc;
+}
+.NavBar-link.active {
+  background-color: #ffffff;
+  color: #cc00cc;
+}

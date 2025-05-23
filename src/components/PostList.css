@@ -1,3 +1,26 @@
-li {
-  margin-bottom: 1.5rem;
+.PostList {
+  font-family: monospace;
+  font-size: 0.8rem;
+  background: #f5f5f5;
+  min-width: 375px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
+.PostList li {
+  margin: 1rem 0rem;
+  list-style-type: none;
+}
+
+.PostList-link {
+  color: #7b7b7b;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.PostList-link:hover {
+  background-color: #cc00cc;
+  color: #fff;
 }

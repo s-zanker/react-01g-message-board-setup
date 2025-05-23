@@ -1,24 +1,21 @@
-import { Post } from './Post';
 import './PostList.css';
+import { Link } from 'react-router';
 
-export function PostList({ posts, updatePost }) {
+export function PostList({ posts }) {
   return (
-    <ul>
-      {posts
-        .map((post) => (
-          <li key={post.id}>
-            <Post
-              title={post.title}
-              author={post.author}
-              date={post.date}
-              summary={post.summary}
-              id={post.id}
-              votes={post.votes}
-              updatePost={(id, updatedItem) => updatePost(id, updatedItem)}
-            />
-          </li>
-        ))
-        .reverse()}
-    </ul>
+    <>
+      <ul className='PostList'>
+        <h2>All Posts</h2>
+        {posts
+          .map((post) => (
+            <li key={post.id}>
+              <Link className='PostList-link' to={`/posts/${post.id}`}>
+                {post.id} {post.title} - by {post.author}{' '}
+              </Link>
+            </li>
+          ))
+          .reverse()}
+      </ul>
+    </>
   );
 }

@@ -11,17 +11,17 @@ import { IoMdArrowDropdown } from 'react-icons/io';
 import { BsHandThumbsUp } from 'react-icons/bs';
 import { BsHandThumbsDown } from 'react-icons/bs';
 
-export function Post({ title, author, date, summary, updatePost, votes, id }) {
+export function Post({ title, author, date, summary, updatePost, votes }) {
   const [summaryIsVisible, setSummaryIsVisible] = useState(false); //summary is only visible, wenn Readme Btn was clicked
 
   function toggleIsVisible() {
     setSummaryIsVisible(!summaryIsVisible);
   }
   function handleUpVote() {
-    updatePost(id, { votes: votes + 1 });
+    updatePost({ votes: votes + 1 });
   }
   function handleDownVote() {
-    votes > 0 && updatePost(id, { votes: votes - 1 });
+    votes > 0 && updatePost({ votes: votes - 1 });
   }
   return (
     <article className='Post'>

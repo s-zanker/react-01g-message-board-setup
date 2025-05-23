@@ -13,18 +13,21 @@ export function PostForm({ addPost }) {
     event.target.reset(); //why do i need this?
   }
   return (
-    <form className='PostForm' onSubmit={(e) => handleFormSubmit(e)}>
-      <label htmlFor='post-title'>Post Title:</label>
-      <input id='post-title' name='title' />
-      <label htmlFor='post-author'>Post Author:</label>
-      <input id='post-author' name='author' type='text' />
-      <label htmlFor='post-summary'>Post Summary:</label>
-      <input id='post-summary' name='summary' type='text' />
-      <label htmlFor='post-date'>Post Date:</label>
-      <input id='post-date' name='date' type='date' />
-      <button className='PostForm-add-button' type='submit'>
-        Add Post
-      </button>
-    </form>
+    <>
+      <form className='PostForm' onSubmit={(e) => handleFormSubmit(e)}>
+        <h2>Add a new post</h2>
+        <label htmlFor='post-title'>Post Title:</label>
+        <input id='post-title' name='title' />
+        <label htmlFor='post-author'>Post Author:</label>
+        <input id='post-author' name='author' type='text' />
+        <label htmlFor='post-summary'>Post Summary:</label>
+        <input id='post-summary' name='summary' type='text' />
+        <label htmlFor='post-date'>Post Date:</label>
+        <input id='post-date' name='date' type='date' />
+        <button className='PostForm-add-button' type='submit'>
+          Add Post
+        </button>
+      </form>
+    </>
   );
 }
