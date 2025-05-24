@@ -2,7 +2,7 @@
   font-family: monospace;
   font-size: 0.8rem;
   background: #f5f5f5;
-  min-width: 375px;
+  width: 100%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 1rem;

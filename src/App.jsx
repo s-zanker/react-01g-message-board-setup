@@ -44,7 +44,7 @@ const initialPosts = [
   },
 ];
 
-function App() {
+export function App() {
   const [posts, setPosts] = useLocalStorage('posts', initialPosts);
 
   function addPost(newPost) {
@@ -74,5 +74,3 @@ function App() {
     </BrowserRouter>
   );
 }
-
-export default App;
