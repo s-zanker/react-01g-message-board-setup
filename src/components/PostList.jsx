@@ -8,8 +8,8 @@ export function PostList({ posts }) {
         <h2>All Posts</h2>
         {posts
           .map((post) => (
-            <li key={post.id}>
-              <Link className='PostList-link' to={`/posts/${post.id}`}>
+            <li key={post._id}>
+              <Link className='PostList-link' to={`/posts/${post._id}`}>
                 {post.title} - by {post.author}{' '}
               </Link>
             </li>
