@@ -1,0 +1,28 @@
+### Gets all posts
+@baseUrl = http://localhost:8080/api/v1
+GET {{baseUrl}}/posts
+
+### Gets a single post
+@postIdToGet = 6821da2b004a0c867b59c003
+GET {{baseUrl}}/posts/{{postIdToGet}}
+
+### Creates a new post
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "title": "New Post",
+  "author": "Codingheart",
+  "date": "2025-05-27",
+  "summary": "Testing the api routes",
+  "votes": 0
+}
+
+### Deletes the new post above - Change the id manualy
+@postIdToDelete = 6835fd2e20cd2a79c8cf5b06
+DELETE {{baseUrl}}/posts/{{postIdToDelete}}
+
+### DEBUG: Show the value of postId
+# This request will likely result in a 404, but it will show you the resolved value of newPostId in the request URL.
+GET {{baseUrl}}/debug-check-id/{{postIdToDelete}}
+
