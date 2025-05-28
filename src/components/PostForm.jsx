@@ -11,7 +11,7 @@ export function PostForm({ addPost }) {
       ...fields,
       votes: 0,
     });
-    event.target.reset(); //why do i need this?
+    event.target.reset();
   }
   return (
     <>
