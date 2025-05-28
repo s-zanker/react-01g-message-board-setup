@@ -7,28 +7,42 @@ import { Header } from './components/Header';
 import { AddPost } from './pages/AddPost';
 import { AllPosts } from './pages/AllPosts';
 import { PostDetails } from './pages/PostDetails';
-import { fetchAllPosts } from './api';
+import { fetchAllPosts, sendAddPost, sendPostUpdate } from './api';
 
 export function App() {
-  // const [posts, setPosts] = useLocalStorage('posts', initialPosts);
   const [posts, setPosts] = useState([]);
 
   async function loadPosts() {
+    console.log('App.jsx - loadPosts - posts: ');
     const posts = await fetchAllPosts();
+    console.log(posts);
     setPosts(posts);
   }
 
   useEffect(() => {
     loadPosts();
-  }, []);
+  }, []); //once, if app is mounted
 
-  function addPost(newPost) {
-    setPosts([...posts, { id: uid(), ...newPost }]);
+  async function addPost(newItem) {
+    // setPosts([...posts, { id: uid(), ...newItem }]);
+    const newId = await sendAddPost(newItem);
+    console.log('App.jsx - addPost - newId: ');
+    console.log(newId);
+    loadPosts();
   }
-  function updatePost(id, updatedItem) {
-    setPosts(
-      posts.map((item) => (item.id === id ? { ...item, ...updatedItem } : item))
-    );
+  async function updatePost(id, updatedItem) {
+    //updatedItem ist entweder { votes: votes + 1 } oder { votes: votes - 1 }
+    // setPosts(
+    //   posts.map((item) =>
+    //     item._id === id ? { ...item, ...updatedItem } : item
+    //   )
+    // );
+    const updated = await sendPostUpdate(id, updatedItem);
+
+    console.log('App.jsx - updatePost - updated: ');
+    console.log(updated);
+
+    loadPosts();
   }
 
   return (
@@ -38,7 +52,8 @@ export function App() {
       <Routes>
         <Route
           path='/'
-          element={<AllPosts posts={posts} updatePost={updatePost} />}
+          // element={<AllPosts posts={posts} updatePost={updatePost} />}
+          element={<AllPosts posts={posts} />} //updatePost wird jetzt von PostDetails übernommen
         />
         <Route path='/add-post' element={<AddPost addPost={addPost} />} />
         <Route

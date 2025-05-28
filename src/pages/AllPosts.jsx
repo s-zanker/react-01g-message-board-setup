@@ -1,8 +1,8 @@
 import { PostList } from '../components/PostList';
-export function AllPosts({ posts, updatePost }) {
+export function AllPosts({ posts }) {
   return (
     <div>
-      <PostList posts={posts} updatePost={updatePost} />
+      <PostList posts={posts} />
     </div>
   );
 }

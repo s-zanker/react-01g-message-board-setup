@@ -5,6 +5,7 @@ export function PostForm({ addPost }) {
     event.preventDefault(); //prevents the browser of sending an http request
     const formData = new FormData(event.target);
     const fields = Object.fromEntries(formData);
+    console.log('PostForm.jsx - handleFormSubmit - form fields:');
     console.log(fields);
     addPost({
       ...fields,
